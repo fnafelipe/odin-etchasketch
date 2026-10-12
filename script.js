@@ -1,9 +1,12 @@
+const grid = document.getElementById("container");
+
 function createGrid(numberOfSize) {
-  const grid = document.getElementById("container");
   for (let i = 0; i < numberOfSize; i++) {
     for (let j = 0; j < numberOfSize; j++) {
       const square = document.createElement("div");
       square.className = "unhovered square";
+      square.style.width = `calc(100% / ${numberOfSize})`;
+      square.style.height = `calc(100% / ${numberOfSize})`;
       square.addEventListener("mouseover", function (e) {
         hoverChange(e.target);
       });
@@ -18,4 +21,17 @@ function hoverChange(square) {
   console.log(square);
 }
 
-createGrid(16);
+function generateNewGrid() {
+  grid.innerHTML = "";
+  const newGridSize = prompt("New grid size: ");
+  if (newGridSize > 100) {
+    console.log();
+  }
+  createGrid(newGridSize);
+}
+
+const btn = document.getElementById("btn");
+
+btn.addEventListener("click", () => {
+  generateNewGrid();
+});
