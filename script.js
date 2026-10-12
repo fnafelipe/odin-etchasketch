@@ -25,9 +25,10 @@ function generateNewGrid() {
   grid.innerHTML = "";
   const newGridSize = prompt("New grid size: ");
   if (newGridSize > 100) {
-    console.log();
+    console.log("Insert a number between 1 and 100");
+  } else {
+    createGrid(newGridSize);
   }
-  createGrid(newGridSize);
 }
 
 const btn = document.getElementById("btn");
