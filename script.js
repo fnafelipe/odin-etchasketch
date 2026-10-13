@@ -16,21 +16,21 @@ function createGrid(numberOfSize) {
 }
 
 function hoverChange(square) {
-  randomColor = generateRandomColorRGB();
+  const randomColor = generateRandomColorRGB();
   console.log(randomColor);
   square.style.backgroundColor = randomColor;
   console.log(square);
 }
 
 function generateRandomColorRGB() {
-  red = generateRandomNumberRGB();
-  green = generateRandomNumberRGB();
-  blue = generateRandomNumberRGB();
+  const red = generateRandomNumberRGB();
+  const green = generateRandomNumberRGB();
+  const blue = generateRandomNumberRGB();
   return `rgb(${red}, ${green}, ${blue})`;
 }
 
 function generateRandomNumberRGB() {
-  return Math.floor(Math.random() * 255);
+  return Math.floor(Math.random() * 256);
 }
 
 function generateNewGrid() {
