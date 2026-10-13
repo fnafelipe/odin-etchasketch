@@ -4,7 +4,7 @@ function createGrid(numberOfSize) {
   for (let i = 0; i < numberOfSize; i++) {
     for (let j = 0; j < numberOfSize; j++) {
       const square = document.createElement("div");
-      square.className = "unhovered square";
+      square.className = "square";
       square.style.width = `calc(100% / ${numberOfSize})`;
       square.style.height = `calc(100% / ${numberOfSize})`;
       square.addEventListener("mouseover", function (e) {
@@ -16,9 +16,21 @@ function createGrid(numberOfSize) {
 }
 
 function hoverChange(square) {
-  square.classList.remove("unhovered");
-  square.classList.add("hovered");
+  randomColor = generateRandomColorRGB();
+  console.log(randomColor);
+  square.style.backgroundColor = randomColor;
   console.log(square);
+}
+
+function generateRandomColorRGB() {
+  red = generateRandomNumberRGB();
+  green = generateRandomNumberRGB();
+  blue = generateRandomNumberRGB();
+  return `rgb(${red}, ${green}, ${blue})`;
+}
+
+function generateRandomNumberRGB() {
+  return Math.floor(Math.random() * 255);
 }
 
 function generateNewGrid() {

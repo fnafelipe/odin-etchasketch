@@ -8,12 +8,5 @@
 .square {
   box-sizing: border-box;
   border: 1px solid black;
-}
-
-.square.unhovered {
   background-color: lightgray;
-}
-
-.square.hovered {
-  background-color: lightgreen;
 }
