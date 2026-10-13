@@ -22,13 +22,26 @@ function hoverChange(square) {
 }
 
 function generateNewGrid() {
-  grid.innerHTML = "";
-  const newGridSize = prompt("New grid size: ");
-  if (newGridSize > 100) {
-    console.log("Insert a number between 1 and 100");
-  } else {
+  let newGridSize = getNewGridSize();
+  if (newGridSize) {
+    clearOldGrid();
     createGrid(newGridSize);
   }
+}
+
+function clearOldGrid() {
+  grid.innerHTML = "";
+}
+
+function getNewGridSize() {
+  let newGridSize;
+  let isInInterval;
+  do {
+    newGridSize = parseInt(prompt("Insert a number between 1 and 100"));
+    isInInterval = 1 <= newGridSize && newGridSize <= 100;
+    console.log(isInInterval);
+  } while (!isInInterval);
+  return newGridSize;
 }
 
 const btn = document.getElementById("btn");
